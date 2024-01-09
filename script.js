@@ -8,4 +8,5 @@ const slidesLenth =slideRight.querySelectorAll('div').length
 let activeSlideIndex = 0
 slideLeft.style.top = `${(slidesLenth - 1) * 100}vh`
 
-upButton.add
+upButton.addEventListener('click', ()=> changeslide('up'))
+downButton.addEventListener('click', ()=> changeslide('down'))
