@@ -6,4 +6,6 @@ const downButton = document.querySelector('.down-button')
 const slidesLenth =slideRight.querySelectorAll('div').length
 
 let activeSlideIndex = 0
-slideLeft.style.top = ``
+slideLeft.style.top = `${(slidesLenth - 1) * 100}vh`
+
+upButton.add
