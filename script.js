@@ -3,10 +3,29 @@ const slideRight = document.querySelector('.right-slide')
 const slideLeft = document.querySelector('.left-slide')
 const upButton = document.querySelector('.up-button')
 const downButton = document.querySelector('.down-button')
-const slidesLenth =slideRight.querySelectorAll('div').length
+const slidesLength =slideRight.querySelectorAll('div').length
 
-let activeSlideIndex = 0
-slideLeft.style.top = `${(slidesLenth - 1) * 100}vh`
+// console.log(slidesLength)
+let activeSlideIndex = 0     
+slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`
 
 upButton.addEventListener('click', ()=> changeslide('up'))
 downButton.addEventListener('click', ()=> changeslide('down'))
+
+function changeslide (direction){
+    const sliderHeight = sliderContainer.clientHeight
+    // console.log(sliderHeight)
+    if(direction==='up'){
+        activeSlideIndex++
+        if(activeSlideIndex > slidesLength-1){
+            activeSlideIndex=0
+        }
+    }else if(direction==='down'){
+        activeSlideIndex--
+        if(activeSlideIndex < 0){
+            activeSlideIndex=3
+        }
+    }
+    slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`
+    slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`
+}
